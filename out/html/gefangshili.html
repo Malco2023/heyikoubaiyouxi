@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>各方势力</title>
+</head>
+
+<style>
+    * {
+    border-sizing:border-box;
+    }
+
+    body {
+    margin:0;
+    background-color:LightBlue;
+    background-image:linear-gradient(45deg,DodgerBlue,white,DodgerBlue);
+    font-family:FangSong;
+    font-weight:bold;
+    }
+
+    div {
+    border-radius:10px;
+    }
+
+    .active {
+    background-color:red;
+    }
+
+    .card {
+    width:300px;
+    height:auto;
+    box-shadow:4px 4px 8px 0 rgba(0,0,0,0.2),4px 6px 20px 0 rgba(0,0,0,0.19);
+    text-align:center;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-items:center;
+    margin-right:auto;
+    background-color:LightBlue;
+    background-image:linear-gradient(to bottom right,yellow,LightBlue,DodgerBlue);
+    border-radius:5%;
+    }
+
+    .card img {
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    }
+
+    .footer {
+    text-align:center;
+    background-color:#1abc9c;
+    background-image:linear-gradient(45deg,DodgerBlue,yellow);
+    color:white;
+    padding:20px;
+    }
+
+    .header {
+    text-align:center;
+    background-color:DodgerBlue;
+    background-image:linear-gradient(45deg,DodgerBlue,yellow);
+    color:white;
+    border-radius:10px;
+    padding:32px;
+    margin:0;
+    }
+
+    .navbar {
+    display:flex;
+    background-color:#333;
+    margin:0;
+    }
+
+    .navbar a {
+    color:white;
+    padding:14px 20px;
+    text-align:center;
+    text-decoration:none;
+    border-radius:10px;
+    }
+
+    .navbar a:hover {
+    background-color:#ddd;
+    color:black;
+    }
+
+    .table-caption {
+    font-size:20px;
+    text-align:center;
+    color:white;
+    text-shadow:0 0 10px #FF0000,3px 5px 10px #0000FF;
+    font-weight:bold;
+    }
+
+    #gemingjun {
+    text-align:center;
+    background-color:white;
+    border:1px solid LightBlue;
+    margin:auto;
+    width:50%;
+    }
+
+    #gemingjun th {
+    font-size:20px;
+    background-color:tomato;
+    }
+
+    #gemingjun td {
+    background-color:#eee;
+    }
+
+    #gemingjun td:hover {
+    background-color:silver;
+    color:white;
+    text-shadow:0 0 10px #FF0000,3px 5px 10px #0000FF;
+    }
+
+    #haijunbenbu {
+    text-align:center;
+    background-color:white;
+    border:1px solid LightBlue;
+    margin:auto;
+    width:50%;
+    }
+
+    #haijunbenbu th {
+    font-size:20px;
+    background-color:tomato;
+    }
+
+    #haijunbenbu td {
+    background-color:#eee;
+    }
+
+    #haijunbenbu td:hover {
+    background-color:silver;
+    color:white;
+    text-shadow:0 0 10px #FF0000,3px 5px 10px #0000FF;
+    }
+
+    #jieshidai {
+    text-align:center;
+    background-color:white;
+    border:1px solid LightBlue;
+    margin:auto;
+    width:50%;
+    }
+
+    #jieshidai th {
+    font-size:20px;
+    background-color:tomato;
+    }
+
+    #jieshidai td {
+    background-color:#eee;
+    }
+
+    #jieshidai td:hover {
+    background-color:silver;
+    color:white;
+    text-shadow:0 0 10px #FF0000,3px 5px 10px #0000FF;
+    }
+
+    #qiwuhai {
+    text-align:center;
+    background-color:white;
+    border:1px solid LightBlue;
+    margin:auto;
+    width:50%;
+    }
+
+    #qiwuhai th {
+    font-size:20px;
+    background-color:tomato;
+    }
+
+    #qiwuhai td {
+    background-color:#eee;
+    }
+
+    #qiwuhai td:hover {
+    background-color:silver;
+    color:white;
+    text-shadow:0 0 10px #FF0000,3px 5px 10px #0000FF;
+    }
+
+    #shijiezhengfu {
+    text-align:center;
+    background-color:white;
+    border:1px solid LightBlue;
+    margin:auto;
+    width:50%;
+    }
+
+    #shijiezhengfu th {
+    font-size:20px;
+    background-color:tomato;
+    }
+
+    #shijiezhengfu td {
+    background-color:#eee;
+    }
+
+    #shijiezhengfu td:hover {
+    background-color:silver;
+    color:white;
+    text-shadow:0 0 10px #FF0000,3px 5px 10px #0000FF;
+    }
+
+    #sihuang {
+    text-align:center;
+    background-color:white;
+    border:1px solid LightBlue;
+    margin:auto;
+    width:50%;
+    }
+
+    #sihuang th {
+    font-size:20px;
+    background-color:tomato;
+    }
+
+    #sihuang td {
+    background-color:#eee;
+    }
+
+    #sihuang td:hover {
+    background-color:silver;
+    color:white;
+    text-shadow:0 0 10px #FF0000,3px 5px 10px #0000FF;
+    }
+
+</style>
+
+<body>
+
+<div>
+    <h1 class="header">禾一口白酉昔的网站o.O</h1>
+</div>
+
+<div class="navbar">
+    <a href="zhuye.html">主页</a>
+    <a href="jieshao.html">介绍</a>
+    <a href="renwujianjie.html">人物简介</a>
+    <a href="gushixian.html">故事线</a>
+    <a href="renwuji.html">人物集</a>
+    <a href="renwuguanxi.html">人物关系</a>
+    <a class="active">各方势力</a>
+    <a href="mingcijieshi.html">名词解释</a>
+    <a href="emoguoshi.html">恶魔果实</a>
+    <a href="#">更多...</a>
+</div>
+
+<div style="display:flex;flex-wrap:wrap">
+    <table id="gemingjun">
+        <caption class="table-caption">革命军</caption>
+        <tr>
+            <th>职位</th>
+            <th>人物</th>
+            <th>简介</th>
+        </tr>
+
+        <tr>
+            <td>总司令官</td>
+            <td>蒙奇·D·龙</td>
+            <td>“世界最凶恶的罪犯”，路飞的父亲、卡普的儿子。</td>
+        </tr>
+
+        <tr>
+            <td>总参谋长</td>
+            <td>萨博</td>
+            <td>革命军的二把手，路飞的义兄，继承了艾斯的烧烧果实，出身于贵族。</td>
+        </tr>
+
+        <tr>
+            <td>鱼人空手道<br>
+                代理师父
+            </td>
+            <td>克尔拉</td>
+            <td>本是天龙人的奴隶，15年前被费舍尔·泰格解放，后来<br>
+                被太阳海贼团护送回家，是“人类与鱼人间的桥梁”。13岁时加入革命军。
+            </td>
+        </tr>
+
+        <tr>
+            <td>伟大航路军<br>
+                军队长
+            </td>
+            <td>安布里奥·伊万科夫</td>
+            <td>卡玛巴卡王国女王，被称作人妖王、奇迹之人，荷尔蒙果实能力者，<br>
+                曾被关进海底监狱，成为5.5层的女王，后与路飞等人成功越狱，<br>
+                顶上战争后曾指导山治修行。
+            </td>
+        </tr>
+
+        <tr>
+            <td>伟大航路军<br>
+                副军队长
+            </td>
+            <td>闪电</td>
+            <td>人妖王伊万科夫的部下。超人系·剪刀果实的能力者。</td>
+        </tr>
+
+        <tr>
+            <td>西军<br>
+                军队长
+            </td>
+            <td>莫里</td>
+            <td>巨人族，说话方式很娘的大叔，推推果实能力者，<br>
+                拥有将地面变成黏土一样的能力。
+            </td>
+        </tr>
+
+        <tr>
+            <td>东军<br>
+                军队长
+            </td>
+            <td>贝洛·贝蒂</td>
+            <td>鼓舞果实能力者，可以通过鼓舞唤起人们潜藏在心底的力量。</td>
+        </tr>
+
+        <tr>
+            <td>东军<br>
+                副军队长
+            </td>
+            <td>阿希露</td>
+            <td>茶色长发、古铜肤色的女性，左手为机械手臂，头戴防风眼罩，<br>
+                身穿墨绿色衬衫。现位于革命军新总部卡玛巴卡王国。
+            </td>
+        </tr>
+
+        <tr>
+            <td>北军<br>
+                军队长
+            </td>
+            <td>乌鸦</td>
+            <td>拥有控制乌鸦的能力，说话声音很小。</td>
+        </tr>
+
+        <tr>
+            <td>南军<br>
+                军队长
+            </td>
+            <td>林德伯格</td>
+            <td>毛皮族，用自己发明的武器战斗。</td>
+        </tr>
+    </table>
+
+    <table id="haijunbenbu">
+        <caption class="table-caption">海军本部</caption>
+        <tr>
+            <th>军衔</th>
+            <th>成员</th>
+        </tr>
+
+        <tr>
+            <td>世界政府全军总帅</td>
+            <td>钢骨·空</td>
+        </tr>
+
+        <tr>
+            <td>海军本部元帅（前任）</td>
+            <td>佛之战国</td>
+        </tr>
+
+        <tr>
+            <td>海军本部元帅（现任）</td>
+            <td>萨卡斯基（赤犬）</td>
+        </tr>
+
+        <tr>
+            <td>（原）海军本部大将</td>
+            <td>萨卡斯基（赤犬）、波鲁萨莉诺（黄猿）、库赞（青雉）</td>
+        </tr>
+
+        <tr>
+            <td>（现）海军本部大将</td>
+            <td>波鲁萨莉诺（黄猿）、一笑（藤虎）、荒牧（绿牛）</td>
+        </tr>
+
+        <tr>
+            <td>（大将候补）海军本部中将</td>
+            <td>祗园（桃兔）、加计（茶豚）</td>
+        </tr>
+
+        <tr>
+            <td>海军本部中将</td>
+            <td>蒙奇·D·卡普、鹤、道伯曼、鬼蜘蛛、斯托洛贝里、<br>
+                火烧山、鼯鼠、巴斯提尤、达尔梅西亚、史铁雷斯、<br>
+                梅纳德、凯莎、约翰·贾恩多、拉库洛瓦、隆兹
+            </td>
+        </tr>
+
+        <tr>
+            <td>海军本部少将</td>
+            <td>缇娜、卡达鲁、卡塔空波、西西里</td>
+        </tr>
+
+        <tr>
+            <td>海军本部准将</td>
+            <td>布兰奴、亚力斯基</td>
+        </tr>
+
+        <tr>
+            <td>海军本部大佐</td>
+            <td>达斯琪、克比、T彭恩、猩猩、<br>
+                修恩、贝里古德、夏林格尔
+            </td>
+        </tr>
+
+        <tr>
+            <td>海军本部少佐</td>
+            <td>贝鲁梅伯、芬布迪</td>
+        </tr>
+
+        <tr>
+            <td>海军本部中尉</td>
+            <td>斯托卡</td>
+        </tr>
+
+        <tr>
+            <td>海军本部少尉</td>
+            <td>马可</td>
+        </tr>
+
+        <tr>
+            <td>海军本部曹长</td>
+            <td>夏因</td>
+        </tr>
+
+        <tr>
+            <td>海军本部军曹</td>
+            <td>马西卡克、柯鲁西</td>
+        </tr>
+
+        <tr>
+            <td>海军本部一等兵</td>
+            <td>莱茵斯</td>
+        </tr>
+
+        <tr>
+            <td>海军本部三等兵</td>
+            <td>赞高</td>
+        </tr>
+    </table>
+
+    <table id="shijiezhengfu">
+        <caption class="table-caption">世界政府</caption>
+        <tr>
+            <th>职务</th>
+            <th>人物</th>
+            <th>简介</th>
+        </tr>
+
+        <tr>
+            <td colspan="2">伊姆</td>
+            <td>立于世界政府最高权力者五老星之上的神秘人物，<br>
+                “空的王座”的主人，被五老星称为“创世主”，<br>
+                其存在不为外界所知。
+            </td>
+        </tr>
+
+        <tr>
+            <td rowspan="5">最高权力（五老星）</td>
+            <td>杰伊戈路西亚·萨坦圣</td>
+            <td>世界政府最高权力“五老星”中的“科学防卫武神”。</td>
+        </tr>
+
+        <tr>
+            <td>玛卡斯·玛兹圣</td>
+            <td>世界政府最高权力“五老星”中的“环境武神”。</td>
+        </tr>
+
+        <tr>
+            <td>托普曼·沃丘利圣</td>
+            <td>世界政府最高权力“五老星”中的“法务武神”。</td>
+        </tr>
+
+        <tr>
+            <td>伊赞巴隆·V·纳斯寿郎圣</td>
+            <td>世界政府最高权力“五老星”中的“财务武神”。</td>
+        </tr>
+
+        <tr>
+            <td>谢泼德·十·庇特圣</td>
+            <td>世界政府最高权力“五老星”中的“农务武神”。</td>
+        </tr>
+
+        <tr>
+            <td>全军总帅</td>
+            <td>空</td>
+            <td>罗杰时期的海军元帅，后晋升至世界政府全军总帅。</td>
+        </tr>
+    </table>
+
+    <table id="jieshidai">
+        <caption class="table-caption">“极恶世代”</caption>
+        <tr>
+            <th>人物</th>
+            <th>果实能力</th>
+            <th>悬赏金</th>
+            <th>旗下（所属）海贼团</th>
+        </tr>
+
+        <tr>
+            <td>马歇尔·D·蒂奇</td>
+            <td>暗暗果实、震震果实</td>
+            <td>39亿9600万</td>
+            <td>黑胡子海贼团</td>
+        </tr>
+
+        <tr>
+            <td>蒙奇·D·路飞</td>
+            <td>橡胶果实（尼卡果实）</td>
+            <td>30亿</td>
+            <td>草帽一伙、草帽大船团</td>
+        </tr>
+
+        <tr>
+            <td>特拉法尔加·D·罗</td>
+            <td>手术果实</td>
+            <td>30亿</td>
+            <td>红心海贼团</td>
+        </tr>
+
+        <tr>
+            <td>尤斯塔斯·基德</td>
+            <td>磁磁果实</td>
+            <td>30亿</td>
+            <td>基德海贼团</td>
+        </tr>
+
+        <tr>
+            <td>罗罗诺亚·索隆</td>
+            <td>起名果实</td>
+            <td>11亿1100万</td>
+            <td>草帽一伙</td>
+        </tr>
+
+        <tr>
+            <td>卡彭·贝基</td>
+            <td>坚城果实</td>
+            <td>3亿5000万</td>
+            <td>火焰坦克海贼团</td>
+        </tr>
+
+        <tr>
+            <td>斯库拉奇曼·阿普</td>
+            <td>音音果实</td>
+            <td>3亿5000万</td>
+            <td>广播海贼团</td>
+        </tr>
+
+        <tr>
+            <td>巴兹尔·霍金斯</td>
+            <td>稻草果实</td>
+            <td>3亿2000万</td>
+            <td>霍金斯海贼团</td>
+        </tr>
+
+        <tr>
+            <td>乔艾莉·波妮</td>
+            <td>岁岁果实</td>
+            <td>3亿2000万</td>
+            <td>波妮海贼团</td>
+        </tr>
+
+        <tr>
+            <td>X·德雷克</td>
+            <td>龙龙果实·异特龙形态</td>
+            <td>2亿2200万</td>
+            <td>德雷克海贼团</td>
+        </tr>
+
+        <tr>
+            <td>尤斯塔斯·基拉</td>
+            <td>人造恶魔果实（SMILE）</td>
+            <td>2亿</td>
+            <td>基德海贼团</td>
+        </tr>
+
+        <tr>
+            <td>乌尔基</td>
+            <td>因果果实</td>
+            <td>1亿800万</td>
+            <td>破戒僧海贼团</td>
+        </tr>
+    </table>
+
+    <table id="qiwuhai">
+        <caption class="table-caption">历任“王下七武海”</caption>
+        <tr>
+            <th>人物</th>
+            <th>简介</th>
+        </tr>
+
+        <tr>
+            <td>乔拉可尔·米霍克</td>
+            <td>七武海制度废除后悬赏金35亿9000万贝里。世界最强剑士，<br>
+                世界第一大剑豪，红发的好友，索隆的师傅，武器是无上大快刀十二工中的黑刀夜，<br>
+                七武海被废除后与克洛克达尔共同创立了十字公会。
+            </td>
+        </tr>
+
+        <tr>
+            <td>巴索罗米·熊</td>
+            <td>悬赏金2亿9600万贝里，革命军干部，原索尔贝王国国王，肉球果实能力者，<br>
+                已被贝加庞克改造成完全改造为“人间兵器”和平主义者PX-0，<br>
+                失去作为人的记忆，在草帽一伙修行的两年间守住了万里阳光号，<br>
+                现已沦为天龙人的奴隶，被萨博等人成功救出。
+            </td>
+        </tr>
+
+        <tr>
+            <td>波雅·汉库克</td>
+            <td>原悬赏金8000万贝里，七武海制度废除后悬赏金16亿5900万贝里。女儿岛国王，<br>
+                九蛇海贼团船长，恋恋果实能力者。她是为了女儿岛的安全而加入七武海的。</td>
+        </tr>
+
+        <tr>
+            <td>小丑·巴基</td>
+            <td>原悬赏金1500万贝里，七武海制度废除后悬赏金31亿8900万贝里。<br>
+                巴基海贼团船长，海贼派遣公司“巴基速递”团长，原罗杰海贼团的实习员，<br>
+                四分五裂果实能力者，香克斯的旧友。<br>
+                顶上战争后受世界政府邀请成为七武海，七武海被废除后加入了十字公会。
+            </td>
+        </tr>
+
+        <tr>
+            <td>爱德华·威布尔</td>
+            <td>原悬赏金4亿8000万贝里，黄猿称其有和白胡子年轻时一样强劲的力量。</td>
+        </tr>
+
+        <tr>
+            <td>沙·克洛克达尔</td>
+            <td>原悬赏金8100万贝里，七武海制度废除后悬赏金19亿6500万贝里。<br>
+                原为巴洛克工作社社长，代号“Mr.0”，沙沙果实能力者，<br>
+                在阿拉巴斯坦被路飞击败后，被世界政府除名，关入监狱，后与路飞等人越狱，<br>
+                顶上战争后进入新世界，两年后创立了十字公会。
+            </td>
+        </tr>
+
+        <tr>
+            <td>马歇尔·D·蒂奇</td>
+            <td>原悬赏金为0，于“顶上战争”之后被除名，在“了却的一战”之后被悬赏为22亿4760万贝里。<br>
+                黑胡子海贼团提督，原白胡子海贼团二番队队员， 暗暗果实、震震果实双能力者，<br>
+                极恶的世代之一，顶上战争杀死白胡子，夺取其果实能力，2年后成为四皇。
+            </td>
+        </tr>
+
+        <tr>
+            <td>海侠·甚平</td>
+            <td>原悬赏金2亿5000万贝里，太阳海贼团船长，为了保护鱼人岛而加入七武海，<br>
+                但因为反对顶上战争而被除名，关入海底大监狱，后与路飞等人越狱，<br>
+                两年后加入BIG MOM麾下。悬赏金为4亿3800万贝里，蛋糕岛事件后加入草帽一伙，<br>
+                和之国事件后悬赏金涨到11亿贝里。
+            </td>
+        </tr>
+
+        <tr>
+            <td>月光·莫利亚</td>
+            <td>原悬赏金3亿2000万贝里，恐怖三桅帆船船长，影影果实能力者，<br>
+                因被草帽一伙击败，顶上战争后被除名。 就在多弗朗明哥率领人间兵器抹杀莫利亚时，<br>
+                其手下阿布萨罗姆用能力将其救走。现重新出现在新世界。
+            </td>
+        </tr>
+
+        <tr>
+            <td>特拉法尔加·D·罗</td>
+            <td>原悬赏金4亿4000万贝里，全名特拉法尔加·D·瓦铁尔·罗，心脏海贼团船长，<br>
+                手术果实能力者，极恶的世代之一。曾是多弗朗明哥的部下， 两年前的超新星。<br>
+                在庞克哈萨德与草帽一伙联盟后主动放弃七武海称号，于德雷斯罗萨事件后悬赏5亿贝里。<br>
+                在和之国与基德联手击败了BIG MOM后，悬赏金涨到30亿贝里。
+            </td>
+        </tr>
+
+        <tr>
+            <td>唐吉诃德·多弗朗明哥</td>
+            <td>原悬赏金3亿4000万贝里，唐吉诃德家族首领，线线果实能力者，曾经是天龙人，<br>
+                10年前夺取了德雷斯罗萨的王位，并黑暗统治了十余年，此外，<br>
+                他还是新世界地下世界的中介，代号Joker（小丑），从事着军火生意、人造果实交易等等。<br>
+                德雷斯罗萨事件中被路飞击败，后被海军逮捕，关押在海底大监狱。
+            </td>
+        </tr>
+    </table>
+
+    <table id="sihuang">
+        <caption class="table-caption">各个时期“四皇”成员</caption>
+        <tr>
+            <th>时期</th>
+            <th>四皇</th>
+            <th>果实能力</th>
+            <th>悬赏金</th>
+            <th>势力</th>
+        </tr>
+
+        <tr>
+            <td rowspan="4">”顶上战争“之前</td>
+            <td>“白胡子”爱德华·纽盖特</td>
+            <td>震震果实</td>
+            <td>50亿4600万</td>
+            <td>白胡子海贼团</td>
+        </tr>
+
+        <tr>
+            <td>“百兽”凯多</td>
+            <td>鱼鱼果实·幻兽种·青龙形态</td>
+            <td>46亿1110万</td>
+            <td>百兽海贼团</td>
+        </tr>
+
+        <tr>
+            <td>“Big Mom”夏洛特·玲玲</td>
+            <td>魂魂果实</td>
+            <td>43亿8800万</td>
+            <td>“Big Mom”海贼团</td>
+        </tr>
+
+        <tr>
+            <td>“红发”香克斯</td>
+            <td>无果实</td>
+            <td>40亿4890万</td>
+            <td>红发海贼团</td>
+        </tr>
+
+        <tr>
+            <td rowspan="4">“了结的一战”之后</td>
+            <td>“百兽”凯多</td>
+            <td>鱼鱼果实·幻兽种·青龙形态</td>
+            <td>46亿1110万</td>
+            <td>百兽海贼团</td>
+        </tr>
+
+        <tr>
+            <td>“Big Mom”夏洛特·玲玲</td>
+            <td>魂魂果实</td>
+            <td>43亿8800万</td>
+            <td>“Big Mom”海贼团</td>
+        </tr>
+
+        <tr>
+            <td>“红发”香克斯</td>
+            <td>无果实</td>
+            <td>40亿4890万</td>
+            <td>红发海贼团</td>
+        </tr>
+
+        <tr>
+            <td>“黑胡子”马歇尔·D·蒂奇</td>
+            <td>暗暗果实、震震果实</td>
+            <td>22亿4760万</td>
+            <td>黑胡子海贼团</td>
+        </tr>
+
+        <tr>
+            <td rowspan="4">“和之国事件”之后</td>
+            <td>“红发”香克斯</td>
+            <td>无果实</td>
+            <td>40亿4890万</td>
+            <td>红发海贼团</td>
+        </tr>
+
+        <tr>
+            <td>“黑胡子”马歇尔·D·蒂奇</td>
+            <td>暗暗果实、震震果实</td>
+            <td>39亿9600万</td>
+            <td>黑胡子海贼团</td>
+        </tr>
+
+        <tr>
+            <td>“千两道化”巴基</td>
+            <td>四分五裂果实</td>
+            <td>31亿8900万</td>
+            <td>巴基速递、十字公会</td>
+        </tr>
+
+        <tr>
+            <td>“草帽”蒙奇·D·路飞</td>
+            <td>橡胶果实（尼卡果实）</td>
+            <td>30亿</td>
+            <td>草帽一伙、草帽大船团</td>
+        </tr>
+    </table>
+
+</div>
+
+
+
+
+
+<div class="footer">
+    <p>
+        Copyright ©版权所有：禾一口白酉昔 &nbsp; 地址：中华人民共和国 广东省 &nbsp;
+    </p>
+    <p>
+        电话：13679547205 &nbsp; 邮编：555555 &nbsp; 邮箱：1206506369@qq.com
+    </p>
+</div>
+
+</body>
+</html>
